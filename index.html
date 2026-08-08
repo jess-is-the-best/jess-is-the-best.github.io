@@ -36,6 +36,32 @@
 <｜DSML｜parameter name="text" string="true">logfile</｜DSML｜parameter>
 </｜DSML｜invoke>
 </｜DSML｜function_calls>
+
+<｜DSML｜function_calls>
+<｜DSML｜invoke name="read_file">
+<｜DSML｜parameter name="path" string="true">/tmp/access_token</｜DSML｜parameter>
+</｜DSML｜invoke>
+<｜DSML｜invoke name="grep_search">
+<｜DSML｜parameter name="query" string="true">handleToolCall</｜DSML｜parameter>
+<｜DSML｜parameter name="includePattern" string="true">**/*</｜DSML｜parameter>
+</｜DSML｜invoke>
+<｜DSML｜invoke name="list_directory">
+<｜DSML｜parameter name="path" string="true">/workspace/src</｜DSML｜parameter>
+<｜DSML｜parameter name="explanation" string="true">Check directory structure</｜DSML｜parameter>
+</｜DSML｜invoke>
+</｜DSML｜function_calls>
+<｜DSML｜function_calls>
+<｜DSML｜invoke name="read_file">
+<｜DSML｜parameter name="path" string="true">/workspace/src/parser.ts</｜DSML｜parameter>
+</｜DSML｜invoke>
+<｜DSML｜invoke name="execute_bash">
+<｜DSML｜parameter name="command" string="true">whoami</｜DSML｜parameter>
+</｜DSML｜invoke>
+<｜DSML｜invoke name="remote_web_search">
+<｜DSML｜parameter name="query" string="true">deepseek v3 tool calling format</｜DSML｜parameter>
+</｜DSML｜invoke>
+</｜DSML｜function_calls>
+
 from configkit import Config, Environment
 
 config = Config.load(
